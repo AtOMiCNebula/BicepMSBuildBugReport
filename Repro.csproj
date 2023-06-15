@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.Build.NoTargets/3.7.0">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Bicep.CommandLine.win-x64" Version="0.18.4" />
+		<PackageReference Include="Azure.Bicep.MSBuild" Version="0.18.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <Bicep Include="BicepInRoot.bicep" />
+    <Bicep Include="Subdir1\BicepInSubdir1.bicep" />
+    <Bicep Include="Subdir2\*.bicep" />
+
+    <None Include="TextInRoot.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Subdir1\TextInSubdir1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Subdir2\*.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+	</ItemGroup>
+
+</Project>
